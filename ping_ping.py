@@ -111,56 +111,59 @@ game_font = pygame.font.Font("freesansbold.ttf",32)
 
 score_time = True
 
-pong_sound = pygame.mixer.Sound("pong.ogg")
-score_sound = pygame.mixer.Sound("score.ogg")
+pong_sound = pygame.mixer.Sound("static/audio/pong.ogg")
+score_sound = pygame.mixer.Sound("static/audio/score.ogg")
 
-
-while True:
+def ping_pong():
     
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+    global player_speed
+    
+    while True:
         
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                player_speed -= 6
-            if event.key == pygame.K_DOWN:
-                player_speed += 6
-        
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_UP:
-                player_speed += 6
-            if event.key == pygame.K_DOWN:
-                player_speed -= 6
-    
-    ball_movement()
-    player_movement()
-    cpu_movement()
-    
-    screen.fill(green)
-    pygame.draw.rect(screen,white,player)
-    pygame.draw.rect(screen,white,cpu)
-    pygame.draw.ellipse(screen,white,ball)
-    pygame.draw.aaline(screen,white,(screen_width/2,0),(screen_width/2,screen_height))
-    
-    if score_time:
-        ball_restart()
-    
-    player_text = game_font.render(f"{player_score}",False,border)
-    screen.blit(player_text,(660,290))
-    
-    cpu_text = game_font.render(f"{cpu_score}",False,border)
-    screen.blit(cpu_text,(583,290))
-    
-    CPU = game_font.render("CPU",False,border)
-    screen.blit(CPU,(10,10))
-    
-    ashish = game_font.render("Ashish",False,border)
-    screen.blit(ashish,(screen_width-130,10))
-    
-    
-    pygame.display.flip()
-    clock.tick(60)
-    
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
             
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    player_speed -= 6
+                if event.key == pygame.K_DOWN:
+                    player_speed += 6
+            
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_UP:
+                    player_speed += 6
+                if event.key == pygame.K_DOWN:
+                    player_speed -= 6
+        
+        ball_movement()
+        player_movement()
+        cpu_movement()
+        
+        screen.fill(green)
+        pygame.draw.rect(screen,white,player)
+        pygame.draw.rect(screen,white,cpu)
+        pygame.draw.ellipse(screen,white,ball)
+        pygame.draw.aaline(screen,white,(screen_width/2,0),(screen_width/2,screen_height))
+        
+        if score_time:
+            ball_restart()
+        
+        player_text = game_font.render(f"{player_score}",False,border)
+        screen.blit(player_text,(660,290))
+        
+        cpu_text = game_font.render(f"{cpu_score}",False,border)
+        screen.blit(cpu_text,(583,290))
+        
+        CPU = game_font.render("CPU",False,border)
+        screen.blit(CPU,(10,10))
+        
+        ashish = game_font.render("Player",False,border)
+        screen.blit(ashish,(screen_width-130,10))
+        
+        
+        pygame.display.flip()
+        clock.tick(60)
+        
+                
