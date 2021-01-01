@@ -8,7 +8,7 @@ Created on Mon Dec 21 10:15:24 2020
 
 import pygame,sys,random
 
-def ball_movement():
+def ball_movement(pong_sound,score_sound):
     
     global ball_speed_x,ball_speed_y,player_score,cpu_score,score_time
     
@@ -54,7 +54,7 @@ def cpu_movement():
     if cpu.bottom >=screen_height:
         cpu.bottom =screen_height
         
-def ball_restart():
+def ball_restart(screen,game_font):
     global ball_speed_x,ball_speed_y, score_time
     
     current_time = pygame.time.get_ticks()
@@ -80,15 +80,13 @@ def ball_restart():
         score_time = None
 
 
-pygame.init()
-clock = pygame.time.Clock()
+#pygame.init()
+#clock = pygame.time.Clock()
 
 
 screen_width = 1260
 screen_height = 600
 
-screen = pygame.display.set_mode((screen_width,screen_height))
-pygame.display.set_caption('Ping Pong')
 
 ball = pygame.Rect(screen_width/2-15,screen_height/2-15,30,30)
 player = pygame.Rect(screen_width-20,screen_height/2-70,10,140)
@@ -107,14 +105,24 @@ player_speed, cpu_speed = 0,7
 
 player_score = 0
 cpu_score = 0
-game_font = pygame.font.Font("freesansbold.ttf",32)
+
 
 score_time = True
 
-pong_sound = pygame.mixer.Sound("static/audio/pong.ogg")
-score_sound = pygame.mixer.Sound("static/audio/score.ogg")
 
 def ping_pong():
+    pygame.init()
+    clock = pygame.time.Clock()
+    
+    screen = pygame.display.set_mode((screen_width,screen_height))
+    pygame.display.set_caption('Ping Pong')
+    
+    game_font = pygame.font.Font("freesansbold.ttf",32)
+    
+    pong_sound = pygame.mixer.Sound("static/audio/pong.ogg")
+    score_sound = pygame.mixer.Sound("static/audio/score.ogg")
+
+
     
     global player_speed
     
@@ -137,7 +145,7 @@ def ping_pong():
                 if event.key == pygame.K_DOWN:
                     player_speed -= 6
         
-        ball_movement()
+        ball_movement(pong_sound,score_sound)
         player_movement()
         cpu_movement()
         
@@ -148,7 +156,7 @@ def ping_pong():
         pygame.draw.aaline(screen,white,(screen_width/2,0),(screen_width/2,screen_height))
         
         if score_time:
-            ball_restart()
+            ball_restart(screen,game_font)
         
         player_text = game_font.render(f"{player_score}",False,border)
         screen.blit(player_text,(660,290))

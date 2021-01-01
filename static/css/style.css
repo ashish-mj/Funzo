@@ -1,0 +1,24 @@
+.feature{
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.box{
+    padding-left: 10px;
+    margin-bottom: -40px;
+    margin-top: -15px;
+}
+.logo{
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+}
+.company{
+display: block;
+color: #ea652d;
+padding-top: 25px;
+font-size: 250%;
+}
