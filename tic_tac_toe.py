@@ -47,38 +47,12 @@ def check_winner(n):
 
 
 
-pygame.init()
-
-window = pygame.display.set_mode((550,550))
-pygame.display.set_caption('Tic-Tac-Toe')
 
 white = (255,255,255)
 black = (0,0,0)
 red = (255,0,0)
 green = (0,255,0)
 blue = (0,0,255)
-
-first = pygame.draw.rect(window, white, (25,25,150,150))
-second = pygame.draw.rect(window, white,(200,25,150,150))
-third = pygame.draw.rect(window, white,(375,25,150,150))
-
-forth = pygame.draw.rect(window, white,(25,200,150,150))
-fifth = pygame.draw.rect(window, white,(200,200,150,150))
-sixth = pygame.draw.rect(window, white,(375,200,150,150))
-
-seventh = pygame.draw.rect(window, white,(25,375,150,150))
-eight = pygame.draw.rect(window, white,(200,375,150,150))
-nine = pygame.draw.rect(window, white,(375,375,150,150))
-
-
-font = pygame.font.Font('freesansbold.ttf', 21)
-text1 = font.render('RECTANGLE WON , ENTER SPACE TO RESTART', True, green, blue)
-textRect1 = text1.get_rect()
-textRect1.center = (275, 550// 2)
-text2 = font.render('CIRCLE WON , ENTER SPACE TO RESTART', True, green, blue)
-textRect2 = text2.get_rect()
-textRect2.center = (275, 550// 2)
-
 
 
 
@@ -92,8 +66,34 @@ board = [[0,0,0],[0,0,0],[0,0,0]]
 won = False
 
 def tic_tac_toe():
-    global won,first,second,third,forth,fifth,sixth,seventh,eight,nine
-    global space,board,player_turn,text1,text2
+    
+    pygame.init()
+    window = pygame.display.set_mode((550,550))
+    pygame.display.set_caption('Tic-Tac-Toe')
+    
+    first = pygame.draw.rect(window, white, (25,25,150,150))
+    second = pygame.draw.rect(window, white,(200,25,150,150))
+    third = pygame.draw.rect(window, white,(375,25,150,150))
+
+    forth = pygame.draw.rect(window, white,(25,200,150,150))
+    fifth = pygame.draw.rect(window, white,(200,200,150,150))
+    sixth = pygame.draw.rect(window, white,(375,200,150,150))
+
+    seventh = pygame.draw.rect(window, white,(25,375,150,150))
+    eight = pygame.draw.rect(window, white,(200,375,150,150))
+    nine = pygame.draw.rect(window, white,(375,375,150,150))
+    
+    font = pygame.font.Font('freesansbold.ttf', 21)
+    text1 = font.render('RECTANGLE WON , ENTER SPACE TO RESTART', True, green, blue)
+    textRect1 = text1.get_rect()
+    textRect1.center = (275, 550// 2)
+    text2 = font.render('CIRCLE WON , ENTER SPACE TO RESTART', True, green, blue)
+    textRect2 = text2.get_rect()
+    textRect2.center = (275, 550// 2)
+
+
+
+    global space,board,player_turn
     while True:
         
         pygame.time.delay(100)

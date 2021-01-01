@@ -35,20 +35,21 @@
 .box{
     padding-left: 10px;
     margin-bottom: -40px;
-    margin-top: -15px;
 }
 .logo{
     float: left;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     margin-bottom: 5px;
+    margin-top:10px;
 }
 .company{
 display: block;
 color: #ea652d;
 padding-top: 25px;
 font-size: 250%;
+margin-top: -5px;
 }
 
 .game-box{
@@ -60,7 +61,7 @@ font-size: 250%;
 
 .hangman_logo,.pingpong_logo,.tictactoe_logo{
  width: 250px;
- height:300px;
+ height:250px;
 }
 .game-box p{
     padding: 5px 0px;
