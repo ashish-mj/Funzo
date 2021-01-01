@@ -103,6 +103,10 @@ def tic_tac_toe():
             if event.type == pygame.QUIT:
                 print("EXIT TTT")
                 run=False
+                space = [[True,True,True],[True,True,True],[True,True,True]]
+                board = [[0,0,0],[0,0,0],[0,0,0]]
+                player_turn="rect"
+                won=False
                 
             
             if event.type == pygame.KEYDOWN:
