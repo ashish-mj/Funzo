@@ -8,7 +8,7 @@ Created on Thu Dec 31 21:40:23 2020
 from flask import Flask, render_template,request
 from tic_tac_toe import tic_tac_toe
 from ping_ping import ping_pong
-#from hangman import hangman
+from hangman import hangman
 
 app = Flask(__name__)
 
@@ -16,10 +16,13 @@ app = Flask(__name__)
 @app.route("/",methods=["POST","GET"])
 def home():
     if request.method=='POST':
+        if request.form['button']=='START':
+            hangman()
+            return render_template('home.html')
         if request.form['button']=='PLAY':
             ping_pong()
             return render_template('home.html')
-        if request.form['button']=='START':
+        if request.form['button']=='GO':
             tic_tac_toe()
             return render_template('home.html')
     return render_template('home.html')

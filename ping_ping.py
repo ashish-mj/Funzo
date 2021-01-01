@@ -6,7 +6,7 @@ Created on Mon Dec 21 10:15:24 2020
 @author: ashish
 """
 
-import pygame,sys,random
+import pygame,random
 
 def ball_movement(pong_sound,score_sound):
     
