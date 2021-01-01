@@ -111,6 +111,7 @@ score_time = True
 
 
 def ping_pong():
+    print("STARTED PING_PONG")
     pygame.init()
     clock = pygame.time.Clock()
     
@@ -130,6 +131,7 @@ def ping_pong():
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print("EXIT PING_PONG")
                 pygame.quit()
                 sys.exit()
             

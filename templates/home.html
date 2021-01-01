@@ -17,19 +17,19 @@
          
            <div class="row ">
             <div class="col span-1-of-4">
-                <form class="hangman">
+                <form action="{{url_for('home')}}" method="post">
                 <div class="game-box">
                     <div class="background">
                         <img alt="hangman" class="hangman_logo" src="../static/images/hangman.png">
                     </div>
                         <p>Your goal is to guess the word to save the player from the hungry monster. Fill in the blanks by guessing one letter at a time to see if it’s in the word. Click on the letter to guess it.</p>
-                        <input type="submit" name="button" value='PLAY' class="button" >
+                        <input type="submit" name="button" value='START' class="button" >
     
                 </div>
                 </form>
             </div>
             <div class="col span-1-of-4">
-                <form>
+                <form action="{{url_for('home')}}" method="post">
                 <div class="game-box">
                     <div class="background">
                         <img alt="pingpong" class="pingpong_logo" src="../static/images/pingpong.png">

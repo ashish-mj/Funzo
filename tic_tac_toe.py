@@ -6,7 +6,7 @@ Created on Sun Dec 27 10:50:04 2020
 @author: ashish
 """
 
-import pygame,sys
+import pygame
 
 
 def check_winner(n):
@@ -66,7 +66,7 @@ board = [[0,0,0],[0,0,0],[0,0,0]]
 won = False
 
 def tic_tac_toe():
-    
+    print("STARTED TIC_TAC_TOE")
     pygame.init()
     window = pygame.display.set_mode((550,550))
     pygame.display.set_caption('Tic-Tac-Toe')
@@ -91,18 +91,19 @@ def tic_tac_toe():
     textRect2 = text2.get_rect()
     textRect2.center = (275, 550// 2)
 
-
-
-    global space,board,player_turn
-    while True:
+    run=True
+    
+    global space,board,player_turn,won
+    while run:
         
         pygame.time.delay(100)
         
         for event in pygame.event.get():
             
             if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+                print("EXIT TTT")
+                run=False
+                
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
@@ -125,6 +126,8 @@ def tic_tac_toe():
                     board = [[0,0,0],[0,0,0],[0,0,0]]
                     player_turn="rect"
                     won=False
+                    
+                    
                 
             if event.type == pygame.MOUSEBUTTONUP:
                 position = pygame.mouse.get_pos()
@@ -245,3 +248,4 @@ def tic_tac_toe():
                 
         
         pygame.display.update()
+    pygame.quit()
