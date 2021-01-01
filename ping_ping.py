@@ -112,6 +112,7 @@ score_time = True
 
 def ping_pong():
     print("STARTED PING_PONG")
+    
     pygame.init()
     clock = pygame.time.Clock()
     
@@ -124,16 +125,15 @@ def ping_pong():
     score_sound = pygame.mixer.Sound("static/audio/score.ogg")
 
 
-    
+    run=True
     global player_speed
     
-    while True:
+    while run:
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 print("EXIT PING_PONG")
-                pygame.quit()
-                sys.exit()
+                run=False
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
@@ -175,5 +175,7 @@ def ping_pong():
         
         pygame.display.flip()
         clock.tick(60)
+        
+    pygame.quit()
         
                 
