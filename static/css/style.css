@@ -1,3 +1,30 @@
+.row {
+    zoom: 1;
+}
+
+.row:before,
+.row:after {
+    content:"";
+    display:table;
+}
+.row:after {
+    clear:both;
+}
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+.span-1-of-3 {
+	width: 32.26%; 
+}
+
+.span-1-of-4 {
+	width: 23.8%; 
+}
+
 .feature{
     background-color: black;
     background-size: cover;
@@ -12,6 +39,7 @@
 }
 .logo{
     float: left;
+    border-radius: 50%;
     width: 100px;
     height: 100px;
     margin-bottom: 5px;
@@ -21,4 +49,38 @@ display: block;
 color: #ea652d;
 padding-top: 25px;
 font-size: 250%;
+}
+
+.game-box{
+    color: #ea652d;
+    border-radius : 5px;
+    width: 80%;
+    margin-left: 175px;
+}
+
+.hangman_logo,.pingpong_logo,.tictactoe_logo{
+ width: 250px;
+ height:300px;
+}
+.game-box p{
+    padding: 5px 0px;
+}
+
+.button{
+background-color: #ea652d;
+border: 1px solid #ea652d;
+color: #fff;
+font-size: 16px;
+padding: 15px 20px;
+border-radius: 5%;
+margin-bottom: 20px;
+margin-left: 70px;
+width : 100px;
+}
+
+.button:hover,
+.button:active{
+    background-color: black;
+    color: #ea652d;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.59);
 }
