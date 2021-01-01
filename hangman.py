@@ -84,6 +84,14 @@ def hangman():
             
             if event.type == pygame.QUIT:
                 run=False
+                status=0
+                guess=[]
+                letters=[]
+                word=random.choice(words_list)
+                for i in range(26):
+                     x = start_x + gap*2 +((radius *2 +gap)*(i%13))
+                     y = start_y + ((i//13)) * (gap+radius*2)
+                     letters.append([x,y,chr(A_asci+i),True])
                 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
